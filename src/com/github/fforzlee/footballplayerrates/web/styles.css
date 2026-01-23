@@ -1,0 +1,506 @@
+/* ========================================
+   Liverpool FC 2025/2026 Player Stats
+   Enhanced Flat Design with Player Photos
+   ======================================== */
+
+/* CSS Variables */
+:root {
+    --primary-color: #C8102E;
+    --primary-dark: #9B0D24;
+    --secondary-color: #00A398;
+    --background: #F5F7FA;
+    --surface: #FFFFFF;
+    --text-primary: #1A1A2E;
+    --text-secondary: #6B7280;
+    --text-light: #9CA3AF;
+    --border-color: #E5E7EB;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --transition: all 0.2s ease;
+}
+
+/* Reset & Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+/* Header */
+.header {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.club-badge {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.header-text h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.team-info {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.info-label {
+    font-size: 12px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.info-value {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Navigation Tabs */
+.tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.tab {
+    padding: 10px 20px;
+    border: none;
+    background: var(--surface);
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.tab:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.tab.active {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Main Content */
+.main-content {
+    min-height: 400px;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Position Groups */
+.position-group {
+    margin-bottom: 32px;
+}
+
+.position-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.position-icon {
+    font-size: 20px;
+}
+
+/* Players Grid */
+.players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+}
+
+/* Player Card - Enhanced with Jersey Number Avatar */
+.player-card {
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    padding: 0;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+    display: flex;
+    overflow: hidden;
+    border-left: 4px solid var(--primary-color);
+}
+
+.player-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.player-avatar-section {
+    position: relative;
+    width: 100px;
+    min-height: 140px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.player-avatar {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.avatar-number {
+    font-size: 32px;
+    font-weight: 800;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.player-info {
+    flex: 1;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-header {
+    margin-bottom: 6px;
+}
+
+.player-name {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.player-meta {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+.player-nationality {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.player-age {
+    color: var(--text-light);
+}
+
+.player-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 12px;
+}
+
+.player-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 8px 4px;
+    background: var(--background);
+    border-radius: var(--radius-sm);
+}
+
+.stat-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.stat-label {
+    font-size: 10px;
+    color: var(--text-light);
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+/* Goalkeeper specific */
+.player-card.goalkeeper {
+    border-left-color: var(--secondary-color);
+}
+
+.player-card.goalkeeper .player-avatar-section {
+    background: linear-gradient(135deg, var(--secondary-color), #008575);
+}
+
+.player-card.goalkeeper .stat-value {
+    color: var(--secondary-color);
+}
+
+/* Rankings */
+.rankings-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 24px;
+}
+
+.ranking-card {
+    background: var(--surface);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    box-shadow: var(--shadow-sm);
+}
+
+.ranking-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.ranking-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.ranking-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    background: var(--background);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+}
+
+.ranking-item:hover {
+    background: #EEF2F7;
+}
+
+.ranking-position {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 50%;
+    background: var(--border-color);
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+.ranking-item:nth-child(1) .ranking-position {
+    background: #FFD700;
+    color: #8B6914;
+}
+
+.ranking-item:nth-child(2) .ranking-position {
+    background: #C0C0C0;
+    color: #5A5A5A;
+}
+
+.ranking-item:nth-child(3) .ranking-position {
+    background: #CD7F32;
+    color: #5C3A15;
+}
+
+.ranking-badge {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ranking-badge.goalkeeper {
+    background: linear-gradient(135deg, var(--secondary-color), #008575);
+}
+
+.badge-number {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+}
+
+.ranking-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.ranking-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ranking-position-text {
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.ranking-stat {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+/* Footer */
+.footer {
+    margin-top: 40px;
+    padding: 24px;
+    text-align: center;
+    color: var(--text-light);
+    font-size: 13px;
+}
+
+.footer p {
+    margin-bottom: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 16px;
+    }
+
+    .header {
+        padding: 20px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .club-badge {
+        width: 64px;
+        height: 64px;
+    }
+
+    .header-text h1 {
+        font-size: 22px;
+    }
+
+    .team-info {
+        gap: 20px;
+    }
+
+    .tabs {
+        gap: 6px;
+    }
+
+    .tab {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+
+    .players-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .player-card {
+        flex-direction: column;
+    }
+
+    .player-avatar-section {
+        width: 100%;
+        min-height: 100px;
+        padding: 16px;
+    }
+
+    .rankings-container {
+        grid-template-columns: 1fr;
+    }
+}

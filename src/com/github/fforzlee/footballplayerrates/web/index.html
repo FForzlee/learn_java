@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liverpool FC 2025/2026 - 球员数据统计</title>
+    <meta name="description" content="利物浦足球俱乐部2025/2026赛季一线队球员比赛关键数据展示">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <img class="club-badge" src="https://resources.premierleague.com/premierleague/badges/100/t14.png"
+                    alt="Liverpool FC">
+                <div class="header-text">
+                    <h1>Liverpool FC</h1>
+                    <p class="subtitle">2025/2026 赛季一线队阵容</p>
+                </div>
+            </div>
+            <div class="team-info">
+                <div class="info-item">
+                    <span class="info-label">主教练</span>
+                    <span class="info-value">Arne Slot</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">赛事</span>
+                    <span class="info-value">英格兰足球超级联赛</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">球员总数</span>
+                    <span class="info-value" id="player-count">20</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tabs">
+            <button class="tab active" data-tab="all">全部阵容</button>
+            <button class="tab" data-tab="forwards">前锋</button>
+            <button class="tab" data-tab="midfielders">中场</button>
+            <button class="tab" data-tab="defenders">后卫</button>
+            <button class="tab" data-tab="goalkeepers">门将</button>
+            <button class="tab" data-tab="rankings">排行榜</button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- All Players Section -->
+            <section id="all" class="section active">
+                <div class="position-group" id="forwards-group">
+                    <h2 class="position-title">
+                        <span class="position-icon">⚡</span>
+                        前锋 Forwards
+                    </h2>
+                    <div class="players-grid" id="forwards-list"></div>
+                </div>
+
+                <div class="position-group" id="midfielders-group">
+                    <h2 class="position-title">
+                        <span class="position-icon">🎯</span>
+                        中场 Midfielders
+                    </h2>
+                    <div class="players-grid" id="midfielders-list"></div>
+                </div>
+
+                <div class="position-group" id="defenders-group">
+                    <h2 class="position-title">
+                        <span class="position-icon">🛡️</span>
+                        后卫 Defenders
+                    </h2>
+                    <div class="players-grid" id="defenders-list"></div>
+                </div>
+
+                <div class="position-group" id="goalkeepers-group">
+                    <h2 class="position-title">
+                        <span class="position-icon">🧤</span>
+                        门将 Goalkeepers
+                    </h2>
+                    <div class="players-grid" id="goalkeepers-list"></div>
+                </div>
+            </section>
+
+            <!-- Position Sections -->
+            <section id="forwards" class="section"></section>
+            <section id="midfielders" class="section"></section>
+            <section id="defenders" class="section"></section>
+            <section id="goalkeepers" class="section"></section>
+
+            <!-- Rankings Section -->
+            <section id="rankings" class="section">
+                <div class="rankings-container">
+                    <div class="ranking-card">
+                        <h3 class="ranking-title">🥇 进球榜 Top Scorers</h3>
+                        <div class="ranking-list" id="scorers-list"></div>
+                    </div>
+                    <div class="ranking-card">
+                        <h3 class="ranking-title">🎯 助攻榜 Top Assisters</h3>
+                        <div class="ranking-list" id="assisters-list"></div>
+                    </div>
+                    <div class="ranking-card">
+                        <h3 class="ranking-title">⭐ 总贡献榜 Top Contributors</h3>
+                        <div class="ranking-list" id="contributors-list"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>数据来源: Premier League, UEFA, Transfermarkt</p>
+            <p>数据截止日期: 2026年1月21日</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
